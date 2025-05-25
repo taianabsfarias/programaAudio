@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(183, 190, 191);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>781</width>
+     <height>571</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <property name="spacing">
+     <number>5</number>
+    </property>
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QPushButton" name="botao_arquivos">
+        <property name="minimumSize">
+         <size>
+          <width>82</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(27, 152, 224);
+border-color: rgb(19, 41, 61);
+min-width: 80px;
+</string>
+        </property>
+        <property name="text">
+         <string>Selecionar arquivos de áudios</string>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>16</width>
+          <height>16</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="botao_pasta">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(27, 152, 224);
+border-color: rgb(19, 41, 61);
+min-width: 80px;</string>
+        </property>
+        <property name="text">
+         <string>Selecionar pasta de áudios</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="tabela_audios">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(19, 41, 61);</string>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <property name="columnCount">
+       <number>6</number>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>127</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Arquivo</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Loudness</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Sharpness</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Strength</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Roughness</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Tonality</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+    <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <widget class="QPushButton" name="botao_csv">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>27</red>
+            <green>152</green>
+            <blue>224</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>27</red>
+            <green>152</green>
+            <blue>224</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>27</red>
+            <green>152</green>
+            <blue>224</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>27</red>
+            <green>152</green>
+            <blue>224</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>27</red>
+            <green>152</green>
+            <blue>224</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>27</red>
+            <green>152</green>
+            <blue>224</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>27</red>
+            <green>152</green>
+            <blue>224</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>27</red>
+            <green>152</green>
+            <blue>224</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>27</red>
+            <green>152</green>
+            <blue>224</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="tabletTracking">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton { background-color: rgb(27, 152, 224);
+border-color: rgb(19, 41, 61);
+font: 12px &quot;Segoe UI&quot;;
+}
+QPushButton:hover {
+	background-color: rgb(31, 177, 255);
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Exportar CSV</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

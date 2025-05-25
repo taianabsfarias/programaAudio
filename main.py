@@ -1,6 +1,5 @@
 
 
-
 import sys
 import os
 import csv
@@ -10,6 +9,9 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from PySide6.QtSvgWidgets import *
 from catalogar_audio import catalogar_audio
+
+from PySide6.QtUiTools import QUiLoader
+from PySide6.QtCore import QFile
 
 
 EXTENSOES_AUDIO = ['.wav', '.mp3', '.flac', '.ogg', '.aac']\
@@ -23,37 +25,31 @@ class MainWindow(QMainWindow):
         self.setup_ui()
 
     def setup_ui(self):
-        widget_central = QWidget()
-        layout_vertical = QVBoxLayout()
-        layout_horizontal = QHBoxLayout()
+        loader = QUiLoader()
+        arquivo_ui = QFile("interface.ui")
+        arquivo_ui.open(QFile.ReadOnly)
 
-        self.botao_arquivos = QPushButton("Selecionar arquivos de áudios")
+
+        ui_carregado = loader.load(arquivo_ui)
+        arquivo_ui.close()
+
+
+        self.setCentralWidget(ui_carregado)
+        self.ui = ui_carregado
+
+        self.botao_arquivos = self.ui.findChild(QPushButton, "botao_arquivos")
         self.botao_arquivos.clicked.connect(self.selecionar_arquivos)
 
-        self.botao_pasta = QPushButton("Selecionar pasta de áudios")
+        self.botao_pasta = self.ui.findChild(QPushButton, "botao_pasta")
         self.botao_pasta.clicked.connect(self.selecionar_pasta)
 
-        self.botao_csv = QPushButton("Exportar CSV")
+        self.botao_csv = self.ui.findChild(QPushButton, "botao_csv")
         self.botao_csv.setEnabled(False)
         self.botao_csv.clicked.connect(self.exportar_csv)
 
-        self.tabela_audios = QTableWidget()
-        self.tabela_audios.setColumnCount(6)
-        self.tabela_audios.setHorizontalHeaderLabels([
-            "Arquivo", "Loudness", "Sharpness", "Strength",
-            "Roughness", "Tonality"
-        ])
-        self.tabela_audios.setColumnWidth(3, 150) 
-        self.tabela_audios.setColumnWidth(5, 150) 
-        layout_horizontal.addWidget(self.botao_arquivos)
-        layout_horizontal.addWidget(self.botao_pasta)
+        self.tabela_audios = self.ui.findChild(QTableWidget, "tabela_audios")
 
-        layout_vertical.addLayout(layout_horizontal)
-        layout_vertical.addWidget(self.tabela_audios)
-        layout_vertical.addWidget(self.botao_csv)
 
-        widget_central.setLayout(layout_vertical)
-        self.setCentralWidget(widget_central)
 
     def selecionar_arquivos(self):
         arquivos,_ = QFileDialog.getOpenFileNames(
@@ -114,7 +110,6 @@ class MainWindow(QMainWindow):
                         dados.get("strength", ""),
                         dados.get("roughness", ""),
                         dados.get("tonality", ""),
-                        dados.get("pitch", "")
                     ])
             QMessageBox.information(self, "Sucesso", "CSV exportado com sucesso!")
         except Exception as e:
