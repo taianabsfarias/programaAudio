@@ -19,13 +19,13 @@ EXTENSOES_AUDIO = ['.wav', '.mp3']\
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Programa Som")
+        self.setWindowTitle("Analisador de áudios")
         self.resize(720, 600)
         self.lista_audios = []
         self.setup_ui()
 
     def setup_ui(self):
-        
+
         loader = QUiLoader()
         arquivo_ui = QFile("interface.ui")
         arquivo_ui.open(QFile.ReadOnly)
@@ -55,7 +55,7 @@ class MainWindow(QMainWindow):
     def selecionar_arquivos(self):
         arquivos,_ = QFileDialog.getOpenFileNames(
             self, "Selecionar arquivos de áudio", "",
-            "Áudios (*.wav *.mp3 *.flac *.ogg *.aac)"
+            "Áudios (*.wav *.mp3 )"
         )
         if arquivos:
             self.catalogar_audios(arquivos)

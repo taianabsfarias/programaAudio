@@ -4,21 +4,20 @@ import numpy as np
 import librosa
 
 def calcular_loudness(audio):
-    potencia = np.square(audio)
-    loudness = np.mean(potencia)
+    loudness = np.mean(audio)
     return loudness
 
 def classificar_loudness(loudness):
     if 0 < loudness < 0.02:
-        return "muito baixo"
+        return "Muito baixo"
     elif 0.02 <= loudness < 0.05:
-        return "baixo"
+        return "Baixo"
     elif 0.05 <= loudness < 0.1:
-        return "moderado"
+        return "Moderado"
     elif 0.1 <= loudness < 0.2:
-        return "alto"
+        return "Alto"
     elif 0.2 <= loudness < 0.4:
-        return "muito alto"
+        return "Muito alto"
     else:
         return "extremamente alto"
 
@@ -103,11 +102,11 @@ def analisar_audio(audio, sr):
     tonality = calcular_tonality(audio, sr)
 
     resultados = {
-        "loudness": calcular_loudness(audio),
-        "sharpness": calcular_sharpness(audio, sr),
-        "strength": calcular_strength(audio),
-        "roughness": calcular_roughness(audio),
-        "tonality": calcular_tonality(audio, sr),
+        "loudness": (f"{calcular_loudness(audio):.8f} {classificar_loudness(loudness)}"), 
+        "sharpness": (f"{calcular_sharpness(audio, sr):.4f} {classificar_sharpness(sharpness)}"),
+        "strength": (f"{calcular_strength(audio):.4f} {classificar_strength(strength)}"),
+        "roughness": (f"{calcular_roughness(audio):.4f} {classificar_roughness(roughness)}"),
+        "tonality": (f"{calcular_tonality(audio, sr):.4f} {classificar_tonality(tonality)}"),
     }
 
     """
@@ -117,7 +116,8 @@ def analisar_audio(audio, sr):
         "strength": classificar_strength(strength),
         "roughness": classificar_roughness(roughness),
         "tonality": classificar_tonality(tonality),
-    }"""
+    }
+    """
 
     return resultados
 

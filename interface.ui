@@ -60,7 +60,7 @@
         <property name="minimumSize">
          <size>
           <width>82</width>
-          <height>20</height>
+          <height>30</height>
          </size>
         </property>
         <property name="baseSize">
@@ -73,7 +73,7 @@
          <string notr="true">background-color: rgb(27, 152, 224);
 border-color: rgb(19, 41, 61);
 min-width: 80px;
-</string>
+font: 600 13px &quot;Arial&quot;;</string>
         </property>
         <property name="text">
          <string>Selecionar arquivos de áudios</string>
@@ -88,10 +88,17 @@ min-width: 80px;
       </item>
       <item>
        <widget class="QPushButton" name="botao_pasta">
+        <property name="minimumSize">
+         <size>
+          <width>82</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(27, 152, 224);
 border-color: rgb(19, 41, 61);
-min-width: 80px;</string>
+min-width: 80px;
+font: 600 13px &quot;Arial&quot;;</string>
         </property>
         <property name="text">
          <string>Selecionar pasta de áudios</string>
@@ -103,7 +110,8 @@ min-width: 80px;</string>
     <item>
      <widget class="QTableWidget" name="tabela_audios">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(19, 41, 61);</string>
+       <string notr="true">background-color: rgb(19, 41, 61);
+font: 13px &quot;Arial&quot;;</string>
       </property>
       <property name="rowCount">
        <number>0</number>
@@ -151,7 +159,7 @@ min-width: 80px;</string>
       <property name="minimumSize">
        <size>
         <width>200</width>
-        <height>20</height>
+        <height>30</height>
        </size>
       </property>
       <property name="maximumSize">
@@ -258,14 +266,10 @@ min-width: 80px;</string>
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton { background-color: rgb(27, 152, 224);
+       <string notr="true">background-color: rgb(27, 152, 224);
 border-color: rgb(19, 41, 61);
-font: 12px &quot;Segoe UI&quot;;
-}
-QPushButton:hover {
-	background-color: rgb(31, 177, 255);
-}
-</string>
+
+font: 600 12px &quot;Arial&quot;;</string>
       </property>
       <property name="text">
        <string>Exportar CSV</string>
