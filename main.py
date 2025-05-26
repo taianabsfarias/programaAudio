@@ -14,7 +14,7 @@ from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile
 
 
-EXTENSOES_AUDIO = ['.wav', '.mp3', '.flac', '.ogg', '.aac']\
+EXTENSOES_AUDIO = ['.wav', '.mp3']\
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -25,6 +25,7 @@ class MainWindow(QMainWindow):
         self.setup_ui()
 
     def setup_ui(self):
+        
         loader = QUiLoader()
         arquivo_ui = QFile("interface.ui")
         arquivo_ui.open(QFile.ReadOnly)
@@ -101,7 +102,7 @@ class MainWindow(QMainWindow):
         try:
             with open(caminho, "w", newline='', encoding="utf-8") as arquivo_csv:
                 gerenciador_csv = csv.writer(arquivo_csv)
-                gerenciador_csv.writerow(["Arquivo", "Loudness", "Sharpness", "Strength", "Roughness", "Tonality"])
+                gerenciador_csv.writerow(["Arquivo", "Loudness", "Sharpness", "Flutuaction strength", "Roughness", "Tonality"])
                 for nome, dados in self.lista_audios:
                     gerenciador_csv.writerow([
                         nome,
