@@ -112,7 +112,6 @@ def analisar_audio(audio, sr):
 
     """
 
-
     resultados = {
         "loudness": calcular_loudness(audio),
         "sharpness": calcular_sharpness(audio, sr),
@@ -120,7 +119,6 @@ def analisar_audio(audio, sr):
         "roughness": calcular_roughness(audio),
         "tonality": calcular_tonality(audio, sr),
     }
-
 
     return resultados
 
