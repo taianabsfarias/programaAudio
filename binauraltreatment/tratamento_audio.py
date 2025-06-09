@@ -35,17 +35,20 @@ class Calibration():
             timeSignal = resample(timeSignal, num_samples)
 
         nChannels = timeSignal.ndim
+        
         if nChannels == 1:
             warnings.warn("Esperado sinal binaural. Verifique seus dados.", UserWarning)
             eqSignal = np.vstack((
                 fftconvolve(timeSignal, filterData['hcorrLeftMF'].flatten()),
                 fftconvolve(timeSignal, filterData['hcorrRightMF'].flatten())
             )).transpose()
+        
         elif nChannels == 2:
             eqSignal = np.vstack((
                 fftconvolve(timeSignal[:, 0], filterData['hcorrLeftMF'].flatten()),
                 fftconvolve(timeSignal[:, 1], filterData['hcorrRightMF'].flatten())
             )).transpose()
+        
         else:
             raise ValueError("Formato de sinal não suportado (esperado mono ou estéreo).")
 
@@ -75,6 +78,7 @@ class Calibration():
         )).transpose()
 
         return binauralAudio
+
 
 if __name__ == "__main__":
     cal = Calibration()

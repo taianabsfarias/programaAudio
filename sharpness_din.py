@@ -4,6 +4,7 @@ import numpy as np
 from mosqito.sq_metrics import sharpness_din_st
 from loudness import Loudness
 
+
 loud_zwk = Loudness()
 
 
@@ -14,7 +15,7 @@ class Sharpnes_DIN():
 
             
     def sharpnessCalculation(self, timeData, samplingRate):        
-    # Bark scale
+
        
         if len(timeData) > 0:
             globalSharpness = sharpness_din_st(timeData, samplingRate, weighting="din")
@@ -36,6 +37,7 @@ class Sharpnes_DIN():
         else:
             specificSharpness = 0  
             globalSharpness = 0
+        
         return(Bark, globalSharpness, specificSharpness)
               
         

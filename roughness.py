@@ -15,6 +15,7 @@ class Roughness():
         
     def roughnessDW(self, timeData, samplingRate):
         shape = len(np.shape(timeData))
+        
         if shape >= 2:
             timeData = timeData[:,0] 
         if len(timeData) > 0:
@@ -29,6 +30,7 @@ class Roughness():
             
     def roughnessECMA(self, timeData, samplingRate):
         shape = len(np.shape(timeData))
+        
         if shape >= 2:
             timeData = timeData[:,0] 
         if len(timeData) > 0:

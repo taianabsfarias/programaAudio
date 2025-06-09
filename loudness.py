@@ -15,6 +15,7 @@ class Loudness():
         
     def loudnessZWK(self, timeData, samplingRate):
         shape = len(np.shape(timeData))
+        
         if shape >= 2:
             timeData = timeData[:,0] 
         if len(timeData) > 0:
@@ -27,6 +28,7 @@ class Loudness():
             
     def loudnessECMA(self, timeData, samplingRate):
         shape = len(np.shape(timeData))
+        
         if shape >= 2:
             timeData = timeData[:,0] 
         if len(timeData) > 0:
