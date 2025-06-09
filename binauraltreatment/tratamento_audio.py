@@ -30,12 +30,10 @@ class Calibration():
             warnings.warn(f"Filtro não encontrado: {filter_path}", UserWarning)
             return None
 
-        # Ajusta o número de amostras se taxas de amostragem forem diferentes
         if samplingRate != filterData['samplingRate']:
             num_samples = int(len(timeSignal) * filterData['samplingRate'] / samplingRate)
             timeSignal = resample(timeSignal, num_samples)
 
-        # Verifica se o sinal é mono ou estéreo
         nChannels = timeSignal.ndim
         if nChannels == 1:
             warnings.warn("Esperado sinal binaural. Verifique seus dados.", UserWarning)
